@@ -10,8 +10,10 @@
   "author": "Arya Pishgah",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^3.0.1",
     "express": "^4.16.3",
     "joi": "^13.7.0",
+    "lodash": "^4.17.11",
     "mongoose": "^5.3.1"
   },
   "devDependencies": {

@@ -1,4 +1,5 @@
 const express = require('express');
+const _ = require('lodash');
 const { validate } = require('./userRequestValidator');
 const UserDal = require('./userDal');
 
@@ -11,7 +12,7 @@ router.post('/', (req, res) => {
             return service.save(requestUser);
         })
         .then(user => {
-            res.status(201).send(user)
+            res.status(201).send(_.pick(user, ["_id", "username", "email"]))
         })
         .catch(err => {
             res.status(400).send(err);

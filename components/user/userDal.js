@@ -1,10 +1,17 @@
 const { User } = require('./userModel');
+const bcrypt = require('bcrypt');
 
 class UserDal {
 
-    save(requestUser) {
+    async save(requestUser) {
         let user = new User(requestUser);
+        user.password = await this.hashPassword(user.password);
         return user.save();
+    }
+
+    async hashPassword(pass) {
+        let salt = await bcrypt.genSalt(10);
+        return bcrypt.hash(pass, salt)
     }
 
     findAll() {
