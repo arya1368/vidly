@@ -16,5 +16,13 @@
   },
   "devDependencies": {
     "@types/express": "^4.16.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arya1368/vidly.git"
+  },
+  "bugs": {
+    "url": "https://github.com/arya1368/vidly/issues"
+  },
+  "homepage": "https://github.com/arya1368/vidly#readme"
 }

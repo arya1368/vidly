@@ -1,8 +1,9 @@
 const express = require('express');
-const { validate } = require('./validator');
-const service = require('../../services/genreService');
+const { validate } = require('./genreRequestValidator');
+const GenreDal = require('./genreDal');
 
 const router = express.Router();
+const service = new GenreDal();
 
 router.post('/', (req, res) => {
     validate(req.body)
