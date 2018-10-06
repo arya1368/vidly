@@ -7,14 +7,14 @@ const service = new GenreDal();
 
 router.post('/', (req, res) => {
     validate(req.body)
-        .then(genre => {
-            return service.save(genre);
+        .then(requestGenre => {
+            return service.save(requestGenre);
         })
-        .then(saved => {
-            res.status(201).send(saved)
+        .then(genre => {
+            res.status(201).send(genre)
         })
         .catch(err => {
-            res.status(400).send(err.details[0].message);
+            res.status(400).send(err);
         })
 });
 
