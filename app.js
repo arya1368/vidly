@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const express = require('express');
 const genreRoute = require('./components/genre/genreRoute');
 const userRoute = require('./components/user/userRoute');
+const sessionRoute = require('./components/session/sessionRoute');
 
 mongoose.connect('mongodb://localhost/vidly', { useNewUrlParser: true } )
     .then(() => console.log("connected to vidly db successfully."))
@@ -15,5 +16,6 @@ app.use(express.json());
 
 app.use('/api/genres', genreRoute);
 app.use('/api/users', userRoute);
+app.use('/api/sessions', sessionRoute);
 
 app.listen(3000, () => console.log("vidly is up on port 3000"));
