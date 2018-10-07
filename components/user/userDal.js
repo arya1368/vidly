@@ -1,10 +1,10 @@
-const { User } = require('./userModel');
+const { UserModel } = require('./userModel');
 const bcrypt = require('bcrypt');
 
 class UserDal {
 
     async save(requestUser) {
-        let user = new User(requestUser);
+        let user = new UserModel(requestUser);
         user.password = await this.hashPassword(user.password);
         return user.save();
     }
@@ -15,9 +15,13 @@ class UserDal {
     }
 
     findAll() {
-        return User.find()
+        return UserModel.find()
             .select("username email")
             .sort("-_id")
+    }
+
+    findByUsername(username) {
+        return UserModel.findOne({username: username})
     }
 }
 

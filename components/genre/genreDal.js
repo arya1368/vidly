@@ -1,4 +1,4 @@
-const { Genre } = require('./genreModel');
+const { GenreModel } = require('./genreModel');
 
 class GenreDal {
 
@@ -7,12 +7,12 @@ class GenreDal {
     }
 
     save(requestGenre) {
-        let genre = new Genre(requestGenre);
+        let genre = new GenreModel(requestGenre);
         return genre.save();
     }
 
     findAll() {
-        return Genre.find();
+        return GenreModel.find();
     }
 }
 
